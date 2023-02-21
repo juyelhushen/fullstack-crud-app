@@ -1,0 +1,32 @@
+<div>
+  <div class="submit-form">
+    <div *ngIf="!submitted">
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" class="form-control" id="name" required [(ngModel)]="student.name" name="name" />
+      </div>
+      <div class="form-group">
+        <label for="name">Email</label>
+        <input type="text" class="form-control" id="email" required [(ngModel)]="student.email" name="email" />
+      </div>
+      <div class="form-group">
+        <label for="branch">Branch</label>
+        <select class="form-control" data-toggle="tooltip" [(ngModel)]="student.branch" data-placement="right" title="Select Student Branch">
+          <option value="null">--Select Branch--</option>
+          <option value="B-Tech">B-Tech</option>
+          <option value="BCA">BCA</option>
+          <option value="MCA">MCA</option>
+          <option value="M-Tech">M-Tech</option>
+        </select>
+      </div>
+
+
+      <button (click)="saveStudent()" class="btn btn-success">Submit</button>
+    </div>
+
+    <div *ngIf="submitted">
+      <h4>Tutorial was submitted successfully!</h4>
+      <button class="btn btn-success" (click)="newStudent()">Add</button>
+    </div>
+  </div>
+</div>

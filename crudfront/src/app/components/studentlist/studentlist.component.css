@@ -1,0 +1,11 @@
+@import "bootstrap/dist/css/bootstrap.min.css";
+
+.list {
+  text-align: left;
+  max-width: 750px;
+  margin: auto;
+}
+
+.btn {
+  margin: 5px;
+}
