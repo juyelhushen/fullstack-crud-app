@@ -2,26 +2,24 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { HttpClientModule } from '@angular/common/http';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { AddstudentComponent } from './components/addstudent/addstudent.component';
-import { StudentlistComponent } from './components/studentlist/studentlist.component';
-import { FormsModule,ReactiveFormsModule, } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MaterialModule } from './shared/material-module';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatTableModule } from '@angular/material/table';
+import { AllStudentComponent } from './components/all-student/all-student.component';
+import { AddStudentComponent } from './components/add-student/add-student.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatCardModule } from '@angular/material/card';
+import { MatSelectModule } from '@angular/material/select';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
 import { EditStudentComponent } from './components/edit-student/edit-student.component';
-import { DeleteStudentComponent } from './components/delete-student/delete-student.component';
-
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    AddstudentComponent,
-    StudentlistComponent,
-    EditStudentComponent,
-    DeleteStudentComponent,
-  ],
+  declarations: [AppComponent, AllStudentComponent, AddStudentComponent, EditStudentComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -29,9 +27,17 @@ import { DeleteStudentComponent } from './components/delete-student/delete-stude
     ReactiveFormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    MaterialModule
+    MatToolbarModule,
+    MatTableModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatCardModule,
+    MatSelectModule,
+    MatButtonModule,
+    FormsModule,
+    MatIconModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

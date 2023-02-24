@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Student } from 'src/app/model/student';
 import { StudentService } from 'src/app/service/student.service';
@@ -6,47 +7,47 @@ import { StudentService } from 'src/app/service/student.service';
 @Component({
   selector: 'app-edit-student',
   templateUrl: './edit-student.component.html',
-  styleUrls: ['./edit-student.component.css']
+  styleUrls: ['./edit-student.component.css'],
 })
 export class EditStudentComponent implements OnInit {
+  students: Student = {
+    id: 0,
+    name:'',
+    email:'',
+    branch:''
+  };
 
 
-  id?: number;
-  student = new Student();
-  message: any;
-
-  constructor(private route: ActivatedRoute,
+  constructor(
     private studentService: StudentService,
-    private router:Router) { }
+    private router: Router,
+    private route: ActivatedRoute,
+  ) {}
 
   ngOnInit(): void {
-    this.id = this.route.snapshot.params['id'];
-    this.getStudentById(this.route.snapshot.params['id'])
+    this.getbyId(this.route.snapshot.params['id']);
   }
 
-  getStudentById(id: number) {
+  getbyId(id: number) {
     this.studentService.getStudentById(id).subscribe({
-      next: (data) => {
-        this.student = data;
-      }, error: (e) => console.error(e)
-    })
+      next: (res) => {
+        this.students = res;
+      },
+    });
   }
 
   update(): void {
-
-    this.message = '';
-
-    const data = {
-      name: this.student.name,
-      email: this.student.email,
-      branch: this.student.branch
+    const studentData = {
+      id: this.students.id,
+      name: this.students.name,
+      email: this.students.email,
+      branch:this.students.branch
     };
-    this.studentService.update(this.student.id,data).subscribe({next:(res)=>{
-      console.log(res);
-      this.router.navigate(['/view-student'])
 
-      this.message = res.message ? res.message : 'This student was updated successfully!';
-    }})
+    this.studentService
+      .update(studentData.id, studentData)
+      .subscribe((data) => {
+        this.router.navigate(['/all-student']);
+      });
   }
-
 }

@@ -1,21 +1,90 @@
-<div>
-  <div class="submit-form">
-    <div>
-      <div class="form-group">
-        <label for="name">Name</label>
-        <input type="text" class="form-control" id="name" required [(ngModel)]="student.name" name="name" />
+<div class="container add-student-container">
+  <div>
+    <mat-card>
+      <h3 style="text-align: center">Update Students Data</h3>
+      <div>
+        <mat-form-field appearance="outline" class="form-element">
+          <mat-label>Name</mat-label>
+          <input matInput  [(ngModel)] ="students.name" />
+        </mat-form-field>
       </div>
-      <div class="form-group">
-        <label for="name">Email</label>
-        <input type="text" class="form-control" id="email" required [(ngModel)]="student.email" name="email" />
-      </div>
-      <div class="form-group">
-        <label for="branch">Branch</label>
-        <input type="text" name="branch" class="form-control" id="branch" required [(ngModel)]="student.branch">
+      <div>
+        <mat-form-field appearance="outline" class="form-element">
+          <mat-label>Email</mat-label>
+          <input matInput  [(ngModel)] ="students.email" />
+        </mat-form-field>
       </div>
 
-
-      <button (click)="update()" class="btn btn-info">Update</button>
-      <p>{{message}}</p>
-    </div>
+      <div>
+        <mat-form-field appearance="outline" class="form-element">
+          <mat-label>Branch</mat-label>
+          <mat-select [(ngModel)] ="students.branch" value= {{students.branch}}>
+            <mat-option value="null">--Select Branch--</mat-option>
+              <mat-option value="BBA">BBA</mat-option>
+              <mat-option value="MBA">MBA</mat-option>
+              <mat-option value="BCA">BCA</mat-option>
+              <mat-option value="MCA">MCA</mat-option>
+              <mat-option value="B.Tech">B.Tech</mat-option>
+              <mat-option value="M.Tech">M.Tech</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div style="text-align: center;">
+        <button mat-flat-button color="primary" (click)="update()">Update</button>
+        <button mat-stroked-button color="warn" [routerLink]="['/all-student']">Cancel</button>
+      </div>
+    </mat-card>
+  </div>
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <div class="container add-student-container">
+  <div>
+    <mat-card>
+      <h3>Update student Details</h3>
+      <div>
+        <form [formGroup]="students">
+          <mat-form-field appearance="outline"  fxFlex>
+            <mat-label for="name">Name</mat-label>
+            <input matInput formControlName="name" required [value]="students.name" />
+          </mat-form-field>
+
+          <mat-form-field appearance="outline" fxFlex>
+            <mat-label for="email">Email</mat-label>
+            <input matInput formControlName="email" [value]="students.email" required />
+          </mat-form-field>
+
+          <mat-form-field appearance="outline" fxFlex>
+            <mat-label>Branch</mat-label>
+            <input matInput formControlName="branch" [value]="students.branch" [disabled]="true" />
+
+          </mat-form-field>
+        </form>
+      </div>
+      <div style="text-align: center;">
+        <button
+        mat-stroked-button color="accent"
+          type="submit"
+          (click)="update()"
+        >
+          Update
+        </button>
+        <button mat-raised-button color="warn" [routerLink]="['/all-student']">Cancel</button>
+      </div>
+    </mat-card>
+  </div>
+</div>
+ -->

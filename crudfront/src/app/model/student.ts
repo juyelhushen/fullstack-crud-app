@@ -1,6 +1,6 @@
 export class Student {
-  id?: number;
-  name?: string;
-  email?: string;
-  branch?: string;
+  id?:number;
+  name?:String;
+  email?:String;
+  branch?:String;
 }

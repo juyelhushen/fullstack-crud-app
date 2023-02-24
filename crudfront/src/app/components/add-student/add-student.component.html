@@ -1,0 +1,44 @@
+<div class="container add-student-container">
+  <div>
+    <mat-card>
+      <h3>Add A new student</h3>
+      <div>
+        <form [formGroup]="studentForm">
+          <mat-form-field appearance="outline" fxFlex>
+            <mat-label>Name</mat-label>
+            <input matInput formControlName="name" required />
+          </mat-form-field>
+
+          <mat-form-field appearance="outline" fxFlex>
+            <mat-label>Email</mat-label>
+            <input matInput formControlName="email" required />
+          </mat-form-field>
+
+          <mat-form-field appearance="outline" fxFlex>
+            <mat-label>Branch</mat-label>
+            <mat-select matInput formControlName="branch" #input>
+              <mat-option value="null">--Select Branch--</mat-option>
+              <mat-option value="BBA">BBA</mat-option>
+              <mat-option value="MBA">MBA</mat-option>
+              <mat-option value="BCA">BCA</mat-option>
+              <mat-option value="MCA">MCA</mat-option>
+              <mat-option value="B.Tech">B.Tech</mat-option>
+              <mat-option value="M.Tech">M.Tech</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </form>
+      </div>
+      <div style="text-align: center;">
+        <button
+          mat-raised-button
+          type="submit"
+          color="primary"
+          (click)="createStudent()"
+        >
+          Add
+        </button>
+        <button mat-raised-button color="warn" [routerLink]="['/all-student']">Cancel</button>
+      </div>
+    </mat-card>
+  </div>
+</div>

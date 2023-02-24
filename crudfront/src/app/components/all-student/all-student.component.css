@@ -1,0 +1,12 @@
+table {
+  width: 80%;
+  min-width: 70%;
+}
+
+.allstudent-container {
+  padding: 20px;
+}
+
+mat-icon {
+  margin: 5px;
+}
