@@ -6,7 +6,11 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-@OpenAPIDefinition(info = @Info(title = "Student Resource", version = "1.0",description = "All student API resource."))
+@OpenAPIDefinition(info = @Info(
+		title = "Student Resource",
+		version = "1.0",
+		description = "All student API resource.")
+)
 public class CrudbackApplication {
 
 	public static void main(String[] args) {
